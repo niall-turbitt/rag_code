@@ -5,7 +5,7 @@
 # COMMAND ----------
 
 # Before logging this chain using the driver notebook, you need to comment out this line.
-# dbutils.library.restartPython() 
+dbutils.library.restartPython() 
 
 # COMMAND ----------
 
@@ -15,6 +15,16 @@ from databricks import rag
 
 from langchain_core.output_parsers import StrOutputParser
 from langchain.schema.runnable import RunnableLambda
+
+# COMMAND ----------
+
+############
+# Private Preview Feature MLflow Tracing
+# RAG Studio dependes on MLflow to show a trace of your chain. The trace can help you easily debug your chain and keep track of inputs & responses your chain performs well or performs poorly.
+############
+
+import mlflow
+mlflow.langchain.autolog()
 
 # COMMAND ----------
 

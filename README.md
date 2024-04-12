@@ -9,6 +9,7 @@ The software and other materials included in this repo ("Copyrighted Materials")
 We suggest following the below tutorials to get started, but you can also refer to our documentation:
 - [RAG Studio Overview Docs.pdf](<RAG Studio Overview Docs.pdf>)
 - [Evaluation Suite Doc.pdf](<Evaluation Suite Doc.pdf>)
+- [MLflow Tracing Docs.pdf](<MLflow Tracing Docs.pdf>)
 
 # Tutorials
 
@@ -17,6 +18,11 @@ We suggest following the below tutorials to get started, but you can also refer 
 ```
 %pip install --quiet "PUT_RAG_EVAL_SUITE_WHEEL_HERE"
 %pip install --quiet "PUT_RAG_STUDIO_WHEEL_HERE"
+
+%pip install opentelemetry-api opentelemetry-sdk databricks-vectorsearch tiktoken langchain langchainhub faiss-cpu -U -q
+%pip uninstall mlflow mlflow-skinny -y # uninstall existing mlflow to avoid installation issues
+%pip install "PUT_MLFLOW_WHEEL_HERE" -U
+%pip install "PUT_MLFLOW_SKINNY_WHEEL_HERE" -U
 ```
 
 *Note: While stored in the Git repo as `.py` files, these `.py` files are actually Databricks Notebooks - if you import the file using Databricks, it will render as a Notebook in the Notebook editor.  We suggest adding a Git Folder in your Databricks workspace based on a forked copy of this repo.*
@@ -85,9 +91,9 @@ To understand the evaluation metrics and LLM judges that are used to evaluate yo
 
 # Advanced examples & tutorials
 
-## 4. Multi-turn converastion
+## 4. Multi-turn conversation
 
-The chain [`4_rag_chain_w_conversation_history`](M1_Sample_Code/4_rag_chain_w_conversation_history/4_rag_chain_w_conversation_history.py) and [`4_rag_chain_w_conversation_history_config.yaml`](M1_Sample_Code/4_rag_chain_w_conversation_history/4_rag_chain_w_conversation_history_config.yaml) is an example showing you how to enable multi-turn conversation with a query re-writer prompt.  You can use this example with the driver notebook from Tutorial #3.
+The chain [`4_rag_chain_w_conversation_history`](M1_Sample_Code/4_rag_chain_w_conversation_history/4_rag_chain_w_conversation_history.py) and [`4_rag_chain_w_conversation_history_config.yaml`](M1_Sample_Code/4_rag_chain_w_conversation_history/4_rag_chain_w_conversation_history_config.yaml) is an example showing you how to enable multi-turn conversation with a query re-writer prompt.  The accompanying driver notebook [`4_rag_chain_w_conversation_history_driver_notebook`](M1_Sample_Code/4_rag_chain_w_conversation_history/4_rag_chain_w_conversation_history_driver_notebook.py) follows the same workflow as the driver notebook from [Tutorial 3](M1_Sample_Code/3_pdf_rag) to log and evaluate this chain.
 
 ## 5. Advanced Evaluation
 ### 5a. Using RAG Evaluation Suite without RAG Studio
