@@ -18,7 +18,6 @@ dbutils.library.restartPython()
 
 # COMMAND ----------
 
-# DBTITLE 1,Import packages
 from operator import itemgetter
 
 from databricks import rag
