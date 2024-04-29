@@ -136,7 +136,7 @@ model_input = {
     "messages": [
         {
             "role": "user",
-            "content": "Hello world!!",
+            "content": "What should I know about the NFL draft?",
         },
         
     ]
@@ -145,7 +145,7 @@ model_input = {
 loaded_model = mlflow.langchain.load_model(logged_chain_info.model_uri)
 
 # Run the model to see the output
-# loaded_model.invoke(question)
+loaded_model.invoke(model_input)
 
 
 ############
@@ -406,9 +406,9 @@ RagConfig(chain_config_path).experimental_log_to_mlflow_run(run_id=evaluation_re
 
 # DBTITLE 1,Deploy the model
 # TODO: Change these values to your catalog and schema
-uc_catalog = "catalog"
-uc_schema = "schema"
-model_name = "pdf_bot"
+uc_catalog = "niall_dev"
+uc_schema = "fox_sports"
+model_name = "nfl_draft_bot"
 uc_model_fqdn = f"{uc_catalog}.{uc_schema}.{model_name}" 
 
 uc_registered_chain_info = mlflow.register_model(logged_chain_info.model_uri, uc_model_fqdn)

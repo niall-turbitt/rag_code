@@ -136,15 +136,15 @@ model_input = {
     "messages": [
         {
             "role": "user",
-            "content": "What is ARES?",
+            "content": "Where is Malik Nabers expected to be drafted to?",
         },
         {
             "role": "assistant",
-            "content": "ARES is a thing for RAG.",
+            "content": "New York Giants",
         },
         {
             "role": "user",
-            "content": "How do you use it?",
+            "content": "What position does he play?",
         }
     ]
 }
@@ -191,9 +191,9 @@ displayHTML(pretty_json_html)
 # COMMAND ----------
 
 # TODO: Change these values to your catalog and schema
-uc_catalog = "catalog"
-uc_schema = "schema"
-model_name = "pdf_bot_conversation_history"
+uc_catalog = "niall_dev"
+uc_schema = "fox_sports"
+model_name = "nfl_draft_bot_conversation_history"
 uc_model_fqdn = f"{uc_catalog}.{uc_schema}.{model_name}" 
 
 uc_registered_chain_info = mlflow.register_model(logged_chain_info.model_uri, uc_model_fqdn)
